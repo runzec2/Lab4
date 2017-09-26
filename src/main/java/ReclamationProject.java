@@ -7,20 +7,37 @@
  * 4. Add comments and Javadoc comments where needed
  * 5. Remove unnecessary comments as appropriate
  */
+/**Reclamation Project.
+ *
+ */
 
-public class ReclamationProject
-{
-    static String doit(String a,String b){
-        if (a.length() > b.length()){
-            String c = a; // TODO: set c to a
-            a=b; b=c;}
-        String r = (a.equals(b)) ? "" : ""; // I love the ternary operator!
-        /*
-         * For loop with i
-         */
-        for (int i = 0; i < a.length(); i++) { for (int j = a.length() - i; j > 0; j--) {
-                for (int k = 0; k < b.length()- j; k++) {
-                    r = (a.regionMatches(i, b, k, j) && j >r.length()) ? a.substring(i,i + j) : r; // Do it!
-                        }} // Ah yeah
-        } return r; }
+public class ReclamationProject {
+    /**a function finds the longest common string between two words.
+     * @param secondWord is a word
+     * @param firstWord is another word
+     * @return return the longest common string
+     *
+     */
+    static String doit(final String firstWord, final String secondWord) {
+        String word1 = firstWord;
+        String word2 = secondWord;
+        if (firstWord.length() > secondWord.length()) {
+            word1 = secondWord;
+            word2 = firstWord;
+           }
+
+        String longestCommon = "";
+        for (int index = 0; index < word1.length(); index++) {
+            for (int backIndex = word1.length() - index; backIndex > 0; backIndex--) {
+                for (int index2 = 0; index2 < word2.length() - backIndex; index2++) {
+                    if (word1.regionMatches(index, word2, index2, backIndex)) {
+                        if (backIndex > longestCommon.length()) {
+                            longestCommon = word1.substring(index, index + backIndex);
+                        }
+                    }
+                }
+             }
+        } return longestCommon;
+    }
 }
+
