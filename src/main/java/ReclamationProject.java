@@ -13,8 +13,8 @@
 
 public class ReclamationProject {
     /**a function finds the longest common string between two words.
-     * @param secondWord is a word
-     * @param firstWord is another word
+     * @param firstWord is a word
+     * @param secondWord is another word
      * @return return the longest common string
      *
      */
